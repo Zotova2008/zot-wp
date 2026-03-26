@@ -20,6 +20,8 @@
 # production
 .idea
 /build
+/plugins
+/uploads
 package-lock.json
 
 # misc
