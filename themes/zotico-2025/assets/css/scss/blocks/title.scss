@@ -1,0 +1,19 @@
+@use "../mixins" as m;
+
+.title {
+  margin: 0;
+
+  font-family: m.$ff-lazydog;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: m.$color-dark;
+  text-align: center;
+  // text-shadow: 1px 1px 1px #000000;
+  // text-shadow: 0 0 1px #000000;
+  text-shadow: 2px 2px 2px #000000;
+
+  @include m.media-max(600px) {
+    font-size: 1.5rem;
+  }
+}

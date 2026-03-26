@@ -1,0 +1,58 @@
+@use "../mixins" as m;
+
+.modal {
+  position: relative;
+  display: none;
+  width: 600px;
+  padding: 40px;
+  color: #ffffff;
+  background-color: m.$color-dark;
+
+  @include m.media-max(767px) {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.modal__content {
+  width: 100%;
+}
+
+.fancybox__content > .f-button.is-close-btn,
+.is-compact .fancybox__content > .f-button.is-close-btn {
+  position: absolute;
+  top: -23px;
+  right: -23px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  color: m.$color-light-darker;
+  opacity: 1;
+  background-color: m.$color-dark;
+  border: 3px solid m.$color-light-darker;
+  border-radius: 50%;
+  transition: color m.$trans-default, background-color m.$trans-default;
+  fill: currentColor;
+  cursor: pointer;
+
+  @include m.stateDefault(m.$color-dark) {
+    background-color: m.$color-light-darker;
+  }
+}
+
+.modal__title {
+  margin: 0;
+  font-family: m.$ff-lazydog;
+
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: inherit;
+  text-shadow: 2px 2px 2px #000000;
+
+  @include m.media-max(600px) {
+    font-size: 1.5rem;
+  }
+}

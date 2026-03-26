@@ -1,0 +1,17 @@
+@use "../mixins" as m;
+
+.mission {
+  padding: 100px 0;
+  color: m.$color-default-white;
+  background-color: m.$color-dark;
+
+  &--white {
+    color: m.$color-dark;
+    background-color: m.$color-default-white;
+  }
+}
+
+.mission__title {
+  font-weight: 400;
+  color: inherit;
+}

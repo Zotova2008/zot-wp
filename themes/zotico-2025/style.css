@@ -1,0 +1,16 @@
+/*!
+Theme Name: Zotico
+Author: Natali Zotova
+Author URI: https://natalizotova.ru
+Description: Сайт товаров для животных
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+*/
+
+html #wpadminbar {
+  top: auto;
+  bottom: 0;
+}

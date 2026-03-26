@@ -1,0 +1,19 @@
+@use "../mixins" as m;
+
+.container {
+  width: 100%;
+  min-width: 320px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include m.media-max(1439px) {
+    padding: 0 32px;
+  }
+  @include m.media-max(1023px) {
+    padding: 0 24px;
+  }
+  @include m.media-max(767px) {
+    padding: 0 16px;
+  }
+}

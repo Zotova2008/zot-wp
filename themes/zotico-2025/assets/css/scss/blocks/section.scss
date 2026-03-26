@@ -1,0 +1,19 @@
+@use "../mixins" as m;
+
+.section {
+  @include m.media-max(767px) {
+    padding: 50px 0;
+  }
+
+  @include m.media-min(768px) {
+    padding: 100px 0;
+  }
+
+  h2 {
+    margin-bottom: 50px;
+  }
+
+  &.store {
+    padding: 50px 0;
+  }
+}

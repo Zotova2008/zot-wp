@@ -1,0 +1,336 @@
+@use "../mixins" as m;
+
+.form__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.form__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  label {
+    margin-bottom: 5px;
+    order: -1;
+    font-family: m.$ff-adigiana;
+    font-size: 25px;
+    line-height: 1;
+    color: rgba(#f0efe9, 0.8);
+
+    transition: color m.$trans-default;
+
+    @include m.media-max(767px) {
+      font-size: 20px;
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 45px;
+    padding: 5px 25px;
+    font-family: m.$ff-adigiana;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ffffff;
+
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    outline: none;
+
+    caret-color: #ffffff;
+    // Цвет курсора
+
+    transition: border m.$trans-default;
+
+    @include m.stateDefault(#ffffff, false) {
+      border-color: #ffffff;
+
+      & + label {
+        color: #ffffff;
+      }
+    }
+
+    &::placeholder {
+      color: #ffffff;
+
+      opacity: 0.5;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      background-color: rgba(#ffffff, 0.2);
+      border-color: #ffffff;
+
+      pointer-events: none;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 98px;
+    padding: 10px 25px;
+    font-family: m.$ff-adigiana;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ffffff;
+    background-color: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    outline: none;
+    caret-color: #ffffff;
+
+    transition: border m.$trans-default;
+    // Цвет курсора
+
+    resize: none;
+
+    @include m.scrollbar(#ffffff, rgba(#000, 0.5));
+
+    &::placeholder {
+      color: #ffffff;
+
+      opacity: 0.5;
+    }
+
+    @include m.stateDefault(#ffffff, false) {
+      border-color: #ffffff;
+
+      & + label {
+        color: #ffffff;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      background-color: rgba(#ffffff, 0.2);
+      border-color: #ffffff;
+
+      pointer-events: none;
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+
+    & input,
+    & textarea {
+      opacity: 0.4;
+      background-color: rgba(#ffffff, 0.2);
+      border-color: #ffffff;
+    }
+
+    & label {
+      color: rgba(#f0efe9, 0.6);
+    }
+  }
+
+  &--checkbox {
+    input {
+      position: relative;
+
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      padding: 0;
+
+      opacity: 0.7;
+      background-color: transparent;
+      border: 1px solid #ffffff;
+      border-radius: 2px;
+
+      appearance: none;
+
+      &:checked {
+        opacity: 1;
+        background-color: #ffffff;
+
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    label {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      padding-top: 6px;
+
+      font-family: m.$ff-adigiana;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+      color: rgba(#ffffff, 0.9);
+
+      cursor: pointer;
+
+      // @include m.vp-767 {
+      //   line-height: 14px;
+      // }
+    }
+
+    label {
+      @include m.hover {
+        input {
+          opacity: 1;
+          background-color: transparent;
+          outline: none;
+        }
+
+        &:checked::after {
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    input {
+      @include m.hover-focus {
+        opacity: 1;
+        background-color: transparent;
+        outline: none;
+
+        &:checked::after {
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    input::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+
+      height: 12px;
+      opacity: 0;
+
+      background-color: #316dc2;
+      mask-image: url("../../../images/sprite.svg#icon-check");
+      mask-repeat: no-repeat;
+      mask-position: center;
+
+      mask-size: contain;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      content: "";
+    }
+
+    &.is-disabled {
+      pointer-events: none;
+
+      input {
+        background-color: #a9afb7;
+      }
+
+      input::after {
+        opacity: 0.7;
+      }
+    }
+
+    &.is-invalid {
+      @include m.hover-focus {
+        input {
+          opacity: 0.7;
+          background-color: rgba(m.$color-error, 0.2);
+          border-color: m.$color-error;
+        }
+      }
+
+      input {
+        opacity: 0.7;
+        background-color: rgba(m.$color-error, 0.2);
+        border-color: m.$color-error;
+      }
+    }
+  }
+
+  input:-internal-autofill-selected,
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus,
+  input:autofill,
+  input:-webkit-autofill-strong-password,
+  input:-webkit-autofill-strong-password-viewable,
+  input:-webkit-autofill-and-obscured {
+    color: #ffffff !important;
+    background-color: transparent;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  input[aria-invalid="true"],
+  textarea[aria-invalid="true"] {
+    background-color: rgba(m.$color-error, 0.2);
+    border-color: m.$color-error;
+  }
+}
+
+.form__submit {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 8px 35px 10px;
+  border: 3px solid m.$color-light-darker;
+
+  @include m.stateDefault(m.$color-light-darker) {
+    background-color: transparent;
+    border: 3px solid m.$color-light-darker;
+  }
+}
+
+.form {
+  .wpcf7-response-output {
+    display: none;
+  }
+
+  .wpcf7-form-control-wrap {
+    position: static;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  .form__item.wpcf7-form-control-wrap {
+    display: flex;
+  }
+
+  .wpcf7-not-valid-tip {
+    //position: absolute;
+    //bottom: 0;
+    //left: 0;
+    //font-size: 12px;
+    //line-height: 1;
+    @include m.visibility-a11y();
+  }
+
+  .wpcf7-not-valid input {
+    background-color: rgba(m.$color-error, 0.2);
+    border-color: m.$color-error;
+  }
+
+  .form__item--checkbox .wpcf7-not-valid-tip {
+    display: none;
+  }
+}

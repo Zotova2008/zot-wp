@@ -1,0 +1,12 @@
+@use "../mixins" as m;
+
+.title-sub {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 1.2;
+  font-family: m.$ff-adigiana;
+  color: m.$color-dark;
+  text-shadow: 0 0 1px #000000;
+}

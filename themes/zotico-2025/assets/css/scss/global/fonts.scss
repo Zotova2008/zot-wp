@@ -1,0 +1,23 @@
+@use "../mixins" as m;
+
+// Adigiana
+
+  @include m.fontFolder("Adigiana", adigiana, adigiana-ultra-400, 400, normal);
+
+// Lazydog
+
+  @include m.fontFolder("Lazydog", lazydog, lazydog-400, 400, normal);
+
+// Proxima Nova
+
+  @include m.fontFolder("Proxima Nova", proxima-nova, proxima-300, 300, normal);
+
+  @include m.fontFolder("Proxima Nova", proxima-nova, proxima-400, 400, normal);
+
+  @include m.fontFolder("Proxima Nova", proxima-nova, proxima-600, 600, normal);
+
+  @include m.fontFolder("Proxima Nova", proxima-nova, proxima-800, 800, normal);
+
+  @include m.fontFolder("Proxima Nova", proxima-nova, proxima-700, 700, normal);
+
+  @include m.fontFolder("Proxima Nova", proxima-nova, proxima-900, 900, normal);

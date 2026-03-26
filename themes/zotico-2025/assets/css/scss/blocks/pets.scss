@@ -1,0 +1,91 @@
+@use "../mixins" as m;
+
+h2.pets__title {
+  margin-bottom: 0;
+}
+
+.pets__text {
+  margin: 0 0 50px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.pets__list {
+  @include m.list-style-none();
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.pets__item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 150px auto;
+  justify-items: center;
+  height: auto;
+
+  padding-top: 30px;
+  text-align: center;
+
+  word-break: break-word;
+
+  cursor: url("../../../images/heart-pointer@2x.png"), default;
+
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 160px;
+
+    background-color: #d86f92;
+
+    transition: transform m.$trans-default;
+  }
+
+  &:nth-child(8n + 2)::before {
+    background-color: #ffa500;
+  }
+
+  &:nth-child(8n + 3)::before {
+    background-color: #ffff00;
+  }
+
+  &:nth-child(8n + 4)::before {
+    background-color: #008000;
+  }
+
+  &:nth-child(8n + 5)::before {
+    background-color: #00007c;
+  }
+
+  &:nth-child(8n + 6)::before {
+    background-color: #87ceeb;
+  }
+
+  &:nth-child(8n + 7)::before {
+    background-color: #800080;
+  }
+
+  &:hover::before {
+    transform: scale(1.2);
+  }
+}
+
+.pets__item img {
+  width: auto;
+  height: 100%;
+  max-height: 150px;
+}
+
+.pets__subtitle {
+  font-size: 16px;
+  line-height: 1.2;
+}

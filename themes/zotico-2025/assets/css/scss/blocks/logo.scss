@@ -1,0 +1,39 @@
+@use "../mixins" as m;
+
+.logo,
+.custom-logo-link {
+  display: block;
+  width: 178px;
+  height: 47px;
+
+  color: #000000;
+
+  transition: color m.$trans-default;
+
+  fill: currentColor;
+
+  &[href] {
+    @include m.stateDefault(#000000) {
+      outline: none;
+      --color-logo-paw: #ffe552;
+    }
+  }
+
+  @include m.media-max(767px) {
+    width: 47px;
+    overflow: hidden;
+  }
+}
+
+.logo svg,
+.custom-logo-link svg {
+  display: block;
+  // width: 100%;
+  height: 100%;
+
+  @include m.media-max(767px) {
+    // width: auto;
+
+    // object-fit: cover;
+  }
+}

@@ -1,0 +1,96 @@
+@use "../mixins" as m;
+
+.fancybox__html5video {
+
+}
+
+.product {
+  padding: 50px 0;
+}
+
+.product__slide-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  &.is-video {
+    position: relative;
+  }
+
+  &.is-video::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    color: m.$color-dark;
+    background-color: m.$color-dark;
+    background-image: url("../../../images/sprite.svg#icon-play");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform m.$trans-default;
+  }
+
+  @include m.stateDefault(#ffffff) {
+    &.is-video::after {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+}
+
+.product__inner {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(auto, 400px) 1fr;
+  gap: 20px;
+
+  @include m.media-max(767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product__swiper {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.product__swiper-inner {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 80px;
+
+  @include m.media-max(767px) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.product__slide:not(.swiper-slide-visible) {
+  opacity: 0 !important;
+}
+
+.product__slide.swiper-slide-visible {
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  transition: m.$trans-default;
+}
+
+.product .slider-controls {
+  bottom: 10px;
+
+  color: m.$color-dark;
+  text-shadow: 2px 2px 2px #ffffff;
+}
+
+.product__store {
+  background-color: m.$color-light;
+  scroll-margin-top: calc(var(--header-height) + 70px);
+}

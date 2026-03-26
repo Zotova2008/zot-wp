@@ -1,0 +1,199 @@
+@use "../mixins" as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: m.$ff-proxima;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  text-rendering: optimizeLegibility;
+
+  color: m.$color-default-black;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  // Что бы при прокрутка была с отступом нужно блоку добавить свойство  scroll-margin-top: 50px;
+  // оптимизация выравнивания шрифта относительно центра строки
+  -moz-osx-font-smoothing: grayscale;
+  // если по прежнему есть проблемы с выравниванием
+  // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  background-color: m.$color-default-white;
+}
+
+// Декоративное подчеркивание ссылок
+// a {
+//   display: inline-block;
+//   padding: 4px 0;
+
+//   color: inherit;
+//   text-decoration: none;
+
+//   &:hover,
+//   &:focus {
+//     text-decoration: 2px;
+
+//     outline: none;
+
+//     text-decoration-color: inherit;
+//     text-decoration-line: underline;
+//     text-decoration-style: solid;
+//     text-underline-offset: 4px;
+//   }
+
+//   &:active {
+//     opacity: 0.6;
+//   }
+// }
+
+a {
+  text-decoration: none;
+  color: m.$color-default-black;
+}
+
+img,
+video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+textarea {
+  resize: none;
+}
+
+.zci-picture img,
+.zci-picture-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// chrome autofill background removal
+// если на проекте у инпутов используются разные цвета фонов\текста -
+// удалите это из глобала и используйте локально с нужными цветами
+// rgba не подойдет, сконвертируйте цвет в hex без прозрачности
+// если в стилях уже используется box-shadow есть другое решение -
+// задать к списку транзишенов `background-color 10000000s ease-out`
+//input:-webkit-autofill {
+//  -webkit-text-fill-color: m.$color-default-black;
+//
+//  box-shadow: inset 0 0 0 1000px m.$color-default-white;
+//}
+
+// Фон элемента меняется свойством -webkit-box-shadow, box-shadow
+//input:-internal-autofill-selected,
+//input:-webkit-autofill,
+//input:-webkit-autofill:hover,
+//input:-webkit-autofill:focus,
+//textarea:-webkit-autofill,
+//textarea:-webkit-autofill:hover,
+//textarea:-webkit-autofill:focus,
+//select:-webkit-autofill,
+//select:-webkit-autofill:hover,
+//select:-webkit-autofill:focus,
+//input:autofill,
+//input:-webkit-autofill-strong-password,
+//input:-webkit-autofill-strong-password-viewable,
+//input:-webkit-autofill-and-obscured {
+//  color: #ffffff !important;
+//  -webkit-text-fill-color: #ffffff !important;
+//  background-color: transparent;
+//  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+//  box-shadow: 0 0 0 1000px transparent inset !important;
+//  -webkit-transition: background-color 5000s ease-in-out 0s;
+//  transition: background-color 5000s ease-in-out 0s;
+//}
+
+// firefox placeholder \ invalid fix + ios bdrs
+input,
+textarea {
+  border-radius: 0;
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+select {
+  border-radius: 0;
+}
+
+// ie11 X removal
+input {
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+  }
+}
+
+// chrome search X removal
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+// input[number] arrows removal
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+// ios button \ inputs reset
+select,
+textarea,
+input:matches(
+    [type="email"],
+    [type="number"],
+    [type="password"],
+    [type="search"],
+    [type="tel"],
+    [type="text"],
+    [type="url"]
+  ) {
+  appearance: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: none;
+}

@@ -1,0 +1,49 @@
+@use "../mixins" as m;
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* stylelint-disable-next-line */
+  min-height: calc(100 * var(--vh, 1vh));
+
+  .header,
+  .footer {
+    flex-shrink: 0;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.visually-hidden {
+  @include m.visibility-a11y;
+}
+
+.scroll-lock-ios {
+  position: fixed;
+
+  overflow: hidden;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.no-transition {
+  /* stylelint-disable-next-line */
+  transition: none !important;
+}

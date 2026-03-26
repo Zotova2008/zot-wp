@@ -1,0 +1,88 @@
+@use "../mixins" as m;
+
+.hero {
+  position: relative;
+
+  background-color: m.$color-dark;
+}
+
+.hero__swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+  padding-bottom: 200px;
+
+  @include m.media-max(767px) {
+    padding-bottom: 100px;
+  }
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+
+  max-width: 500px;
+  padding: 60px;
+
+  filter: url("../../../images/svg/filter-radius.svg#goo");
+
+  @include m.media-max(767px) {
+    max-width: none;
+    padding: 20px;
+
+    background-color: m.$color-light;
+    filter: none;
+    border-radius: m.$border-radius-main;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+
+    inset: 0;
+
+    background-color: m.$color-light;
+    clip-path: polygon(
+                    3% 17%,
+                    11% 4%,
+                    28% 3%,
+                    60% 0,
+                    88% 9%,
+                    98% 23%,
+                    100% 49%,
+                    93% 81%,
+                    72% 93%,
+                    18% 100%,
+                    5% 90%,
+                    0 54%
+    );
+
+    @include m.media-max(767px) {
+      display: none;
+    }
+  }
+}
+
+.hero__title {
+  margin-bottom: 20px;
+
+  text-align: left;
+}
+
+.hero__img {
+  position: absolute;
+  z-index: -1;
+
+  inset: 0;
+
+  margin: 0;
+}
+
+.hero__img img {
+  @include m.media-max(767px) {
+    object-position: top 50% right 28%;
+  }
+}

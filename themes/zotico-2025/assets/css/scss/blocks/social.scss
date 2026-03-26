@@ -1,0 +1,38 @@
+@use "../mixins" as m;
+
+.social {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 40px);
+  gap: 10px;
+}
+
+.social__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  color: inherit;
+
+  background-color: rgba(#ffffff, 0.3);
+  border-radius: 5px;
+
+  transition: background-color m.$trans-default, color m.$trans-default;
+
+  fill: currentColor;
+
+  @include m.hover-focus {
+    color: m.$color-dark;
+
+    background-color: m.$color-light-darker;
+    outline: none;
+  }
+  //
+  @include m.active {
+    &:active {
+      color: m.$color-light-active;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "../mixins" as m;
+
+.link {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  transition: color m.$trans-default;
+
+  span {
+    padding-bottom: 5px;
+    background: linear-gradient(to right, currentColor, currentColor) no-repeat 0 100%;
+    background-size: 0 2px;
+    transition: background-size 400ms;
+  }
+
+  &[href] {
+    @include m.hover-focus {
+      outline: none;
+
+      @include m.media-min(768px) {
+        & span {
+          background-size: 100% 2px;
+        }
+      }
+    }
+  }
+
+  &[href]:active {
+    color: m.$color-light-active;
+    text-decoration: none;
+  }
+
+  //&::before {
+  //  position: absolute;
+  //  // left: 0;
+  //  content: "";
+  //  bottom: -2px;
+  //  left: 50%;
+  //
+  //  transform: translateX(-50%);
+  //  width: 0;
+  //
+  //  height: 3px;
+  //  background-color: currentColor;
+  //
+  //  transition: width m.$trans-default;
+  //}
+
+  &:not([href]) {
+    color: m.$color-gray;
+    pointer-events: none;
+  }
+}

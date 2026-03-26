@@ -1,0 +1,68 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$color-default-black: #000000;
+$color-default-white: #ffffff;
+$color-transparent: rgba(255, 255, 255, 0);
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+$color-light: #f9f4ec;
+$color-gray: #737272;
+$color-light-active: #a38454;
+$color-light-darker: #ffe552;
+$color-dark: #006442;
+$color-dark-lighter: #51865d;
+$color-dark-lighter2: #93ac94;
+
+$color-error: #ff1553;
+// Border
+$border-radius-main: 30px;
+$border-size: 3px;
+
+$active-default: 0.5;
+
+// Typography
+// ---------------------------------
+
+// переменная используемая в html для подключения скейлинга
+$fz-default: 17px;
+$fz-default-lh: 24px;
+$fz-weight: 300;
+
+// у некоторых шрифтов в ios возникают проблемы с символом рубля
+// https://www.artlebedev.ru/kovodstvo/sections/159/#13
+$ff-coiny: "Coiny", "Candara", sans-serif;
+$ff-adigiana: "Adigiana", "Candara", sans-serif;
+$ff-lazydog: "Lazydog", "Candara", sans-serif;
+$ff-proxima: "Proxima Nova", "Candara", sans-serif;
+
+// Animation
+// ---------------------------------
+
+$tf-default: ease;
+$trans-default: 0.3s $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+$trans-600: 0.6s $tf-default;
+
+// Viewports
+// ---------------------------------
+
+$vp-320: 320px;
+$vp-375: 375px;
+$vp-768: 768px;
+$vp-1024: 1024px;
+$vp-1280: 1280px;
+$vp-1440: 1440px;
+$vp-1920: 1920px;
+
+// Retina
+// ---------------------------------
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;

@@ -1,0 +1,47 @@
+@use "../mixins" as m;
+
+.button {
+  display: inline-block;
+  // width: 220px;
+  padding: 11px 40px 14px;
+
+  font-family: m.$ff-adigiana;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 400;
+  color: m.$color-dark;
+  text-align: center;
+
+  background-color: m.$color-light-darker;
+  border: none;
+  border-radius: m.$border-radius-main;
+  transition: background-color m.$trans-default, color m.$trans-default;
+  cursor: pointer;
+
+  @include m.hover-focus {
+    color: m.$color-light-darker;
+
+    background-color: m.$color-dark;
+    outline: none;
+  }
+  //
+  @include m.active {
+    &:active {
+      color: m.$color-light-active;
+      text-decoration: none;
+    }
+  }
+
+  &--red {
+    background-color: m.$color-error;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    opacity: 0.5;
+    background-color: m.$color-gray;
+    border-color: m.$color-gray;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

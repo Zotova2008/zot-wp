@@ -1,0 +1,23 @@
+@use "../mixins" as m;
+
+.form-message {
+  max-width: 450px;
+}
+
+.form-message__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  font-family: m.$ff-adigiana;
+  font-size: 30px;
+  line-height: 40px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.form-message__title {
+  font-size: 45px;
+  line-height: 50px;
+}

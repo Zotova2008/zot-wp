@@ -1,0 +1,47 @@
+// Vendor
+@use "vendor/animate.min";
+@use "vendor/data-accordion";
+
+// Global
+// ---------------------------------
+
+@use "global/root";
+@use "global/fonts";
+
+@use "global/reboot";
+@use "global/utils";
+@use "global/container";
+
+// Blocks
+// ---------------------------------
+
+@use "blocks/button";
+@use "blocks/link";
+@use "blocks/title";
+@use "blocks/title-sub";
+@use "blocks/form-message";
+@use "blocks/form-page";
+
+@use "blocks/section";
+@use "blocks/modal";
+@use "blocks/slider";
+@use "blocks/form";
+@use "blocks/logo";
+@use "blocks/header";
+@use "blocks/drop";
+@use "blocks/main-nav";
+@use "blocks/hero";
+@use "blocks/adv";
+@use "blocks/catalog";
+@use "blocks/certification";
+@use "blocks/pets";
+@use "blocks/store";
+@use "blocks/product";
+@use "blocks/instruction";
+@use "blocks/composition";
+@use "blocks/mission";
+@use "blocks/intro";
+@use "blocks/faq";
+@use "blocks/accordion";
+@use "blocks/social";
+@use "blocks/footer";

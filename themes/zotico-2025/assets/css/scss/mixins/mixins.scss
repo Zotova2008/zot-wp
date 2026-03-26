@@ -1,0 +1,49 @@
+@use "variables" as *;
+
+@mixin position($top: 50%, $left: 50%, $topTrans: -50%, $leftTrans: -50%) {
+  top: $top;
+  left: $left;
+  transform: translate($leftTrans, $topTrans);
+}
+
+@mixin scrollbar($color-thumb: $red-brand, $color-track: $gray-light) {
+  &::-webkit-scrollbar {
+    width: 5px; /* Ширина всего элемента навигации */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color-track; /* Цвет дорожки */
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-thumb; /* Цвет бегунка */
+    border: none; /* Оформление границ бегунка */
+    border-radius: 20px; /* Округление бегунка */
+  }
+}
+
+@mixin scrollbarHorizon($color-thumb, $color-track) {
+  &::-webkit-scrollbar {
+    width: 100%; /* Ширина всего элемента навигации */
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color-track; /* Цвет дорожки */
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-thumb; /* Цвет бегунка */
+    border: none; /* Оформление границ бегунка */
+    border-radius: 20px; /* Округление бегунка */
+  }
+}
+
+@mixin list-style-none($padding: 0, $margin: 0) {
+  margin: $margin;
+  padding: $padding;
+
+  list-style: none;
+}

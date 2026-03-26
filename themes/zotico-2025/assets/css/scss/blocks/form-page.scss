@@ -1,0 +1,17 @@
+@use "../mixins" as m;
+
+.form-page {
+  color: #ffffff;
+  background-color: m.$color-dark;
+
+  .form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.form-page__title {
+  margin-bottom: 50px;
+  color: #ffffff;
+  text-align: center;
+}

@@ -1,0 +1,108 @@
+@use "../mixins" as m;
+
+.accordion {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+
+  & + & {
+    margin-top: 20px;
+  }
+}
+
+// .accordion__element {
+// }
+.accordion__button {
+  position: relative;
+  width: 100%;
+
+  @include m.media-min(1200px) {
+    padding-right: 50px;
+  }
+
+  &::after {
+    @include m.media-min(1200px) {
+      position: absolute;
+      content: "^";
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%) rotate(-180deg);
+      width: 12px;
+      height: 18px;
+      font-size: 35px;
+      line-height: 35px;
+      color: currentColor;
+      transition: transform m.$trans-default;
+    }
+  }
+
+  .accordion[open] & {
+    color: m.$color-light-darker;
+    background-color: m.$color-dark;
+  }
+}
+
+.accordion__content {
+  margin-top: -2px;
+}
+
+.accordion__wrapper {
+  margin: 0 15px 5px;
+  padding: 20px 40px;
+
+  background-color: m.$color-light-darker;
+  border-radius: 0 0 m.$border-radius-main m.$border-radius-main;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+  & p {
+    margin: 0;
+  }
+
+  & p + p {
+    margin-top: 10px;
+  }
+
+  & a {
+    position: relative;
+
+    display: inline-block;
+
+    font-weight: 700;
+    color: m.$color-dark;
+
+    transition: color m.$trans-default;
+
+    @include m.hover-focus {
+      outline: none;
+
+      &::before {
+        width: 100%;
+      }
+    }
+    //
+    @include m.active {
+      &:active {
+        color: m.$color-light-active;
+        text-decoration: none;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      // left: 0;
+      content: "";
+      bottom: 0;
+      left: 50%;
+
+      transform: translateX(-50%);
+      width: 0;
+
+      height: 2px;
+      background-color: currentColor;
+
+      transition: width m.$trans-default;
+    }
+  }
+}
